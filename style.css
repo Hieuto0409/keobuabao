@@ -1,0 +1,26 @@
+body{
+  background-color: gainsboro;
+}
+.itemsContainer{
+  padding-top: 50px;
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+}
+.items{
+  padding: 20px;
+  cursor: pointer;
+  /* background-color: #fff; */
+  border:none;
+  font-size: 50px;
+}
+.items:hover{ 
+  transform: scale(1.1);
+}
+.style{
+  font-size: 50px;
+}
+.resultStyle{
+  font-size: 30px;
+  color: red;
+}

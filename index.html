@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <title>Game</title>
+</head>
+<body>
+    <div class="itemsContainer">
+        <button value="✊" class="items">✊</button>
+        <button value="🖐" class="items">🖐</button>
+        <button value="✌" class="items">✌</button>
+    </div>
+    <div class="itemsContainer">
+        <div>
+            <h1 >You</h1>
+            <h1 class="you style"></h1>
+        </div>
+        <div>
+            <h1>Computer</h1>
+            <h1 class="computer style"></h1>
+        </div>
+    </div>
+    <h2>RESULT: <span class="result resultStyle"></span></h2>
+</body>
+<script>
+    const ItemsGame=document.querySelectorAll('.items')
+    const You=document.querySelector('.you')
+    const Computer=document.querySelector('.computer')
+    const RESULT=document.querySelector('.result')
+    const comObject=[
+        {
+            Number:0, 
+            Emoji:'✊',
+        },
+        {
+            Number:1, 
+            Emoji:'🖐',
+        },
+        {
+            Number:2, 
+            Emoji:'✌',
+        }
+    ]
+
+    ItemsGame.forEach((e,index)=>{
+        e.addEventListener('click',a=>{
+            // console.log(e.value);
+            const yourChoose=e.value
+            const ComChoose=Math.floor(Math.random() * 3);
+            
+            outPut(yourChoose,ComChoose)
+        })
+    })
+    const outPut=(value1,value2)=>{
+        You.innerHTML=value1
+        const abc=comObject[value2].Emoji
+        Computer.innerHTML=abc
+        Work(value1, abc)
+    }
+    const Work=(your,com)=>{
+        console.log(your,com);
+        if(your==com){
+            RESULT.innerHTML='draw';
+        }
+        if(your=="✊" && com=="✌"){
+            RESULT.innerHTML='Win';
+        }
+        else if(your=="✊" && com=="🖐"){
+            RESULT.innerHTML='Lose';
+        }
+        if(your=="✌" && com=="✊"){
+            RESULT.innerHTML='Lose';
+        }
+        else if(your=="🖐" && com=="✊"){
+            RESULT.innerHTML='Win';
+        }
+        if(your=="🖐" && com=="✌"){
+            RESULT.innerHTML='Lose';
+        }
+        else if(your=="✌" && com=="🖐"){
+            RESULT.innerHTML='Win';
+        }
+    }
+</script>
+</html>
